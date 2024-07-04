@@ -5,7 +5,7 @@ import logo from '../assets/logo.png';
 const Header = () => {
     return (
         <header>
-            <Navbar bg='dark' variants="dark" expand="md" collapseOnSelect></Navbar>
+            <Navbar bg='dark' variants="dark" expand="md" collapseOnSelect>
             <Container>
                 <Navbar.Brand href='/'>
                 <img src={logo} alt="" />
@@ -20,6 +20,7 @@ const Header = () => {
                 </Nav>
                 </Navbar.Collapse>
             </Container>
+            </Navbar>
         </header>
     )
 }
