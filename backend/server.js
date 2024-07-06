@@ -1,5 +1,5 @@
 import express from 'express';
-import products from './data/products';
+import products from './data/products.js';
 
 const port =  5000;
 
@@ -11,10 +11,14 @@ app.get('/', (req, res) => {
 
 app.get('/api/products', (req, res) => {
     res.json(products);
-})
-app.get('/api/products:id', (req, res) => {
+});
+app.get('/api/products/:id', (req, res) => {
     const products = products.find((p) => p._id === req.params.id)
-    res.json(products);
-})
+    if (products) {
+        res.json(products);
+    } else {
+        res.status(404).json({ message: 'Product not found' });
+    }
+});
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
