@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap';
@@ -23,11 +24,28 @@ const ProductScreen = () => {
     fetchProduct();
     }, [productId]);
 
+=======
+import React from 'react';
+import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap';
+import { Link, useParams } from 'react-router-dom';
+import Rating from '../components/Rating';
+import products from '../products';
+
+const ProductScreen = () => {
+    const { id: productId } = useParams();
+    console.log('Product ID from URL:', productId); // Log del productId
+
+    const product = products.find((p) => p._id === productId);
+>>>>>>> c04160c3d761097716e26e383611f518956263ac
     console.log('Product found:', product); // Log del producto encontrado
     if (!product) {
         return <div>Product not found</div>;
     }
+<<<<<<< HEAD
     return (
+=======
+  return (
+>>>>>>> c04160c3d761097716e26e383611f518956263ac
     <>
     <Link className="btn btn-light my-3" to="/" >Go Back</Link>
     <Row>
@@ -44,8 +62,12 @@ const ProductScreen = () => {
             text={`${product.numReviews} reviews`} />
             </ListGroup.Item>
             <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
+<<<<<<< HEAD
             <ListGroup.Item>Description: ${product.description}
             </ListGroup.Item>
+=======
+            <ListGroup.Item>Description: ${product.description}</ListGroup.Item>
+>>>>>>> c04160c3d761097716e26e383611f518956263ac
         </ListGroup>
         </Col>
         <Col md={3}>
@@ -71,7 +93,11 @@ const ProductScreen = () => {
                 <ListGroup.Item>
                     <Button className='btn-block'
                     type='button'
+<<<<<<< HEAD
                     disabled={product.countInStock === 0}>
+=======
+                    disable={product.countInStock === 0}>
+>>>>>>> c04160c3d761097716e26e383611f518956263ac
                         Add To Cart
                     </Button>
                 </ListGroup.Item>
@@ -80,7 +106,12 @@ const ProductScreen = () => {
         </Col>
     </Row>
     </>
+<<<<<<< HEAD
   );
 };
+=======
+  )
+}
+>>>>>>> c04160c3d761097716e26e383611f518956263ac
 
 export default ProductScreen
